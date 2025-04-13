@@ -19,7 +19,7 @@ public class CORSFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
 
         // Permitir acceso desde el frontend (React)
-        res.setHeader("Access-Control-Allow-Origin", "https://react-login-6eit.onrender.com"); // Cambia esto si React corre en otro puerto
+        res.setHeader("Access-Control-Allow-Origin", "*"); // Cambia esto si React corre en otro puerto
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         res.setHeader("Access-Control-Allow-Credentials", "true");
