@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+                        https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+    version="3.1">
+    
+    <persistence-unit name="MiUnidadPersistencia">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        
+        <!-- Registra las entidades -->
+        <class>com.mycompany.login.entidades.Usuario</class>
+        <class>com.mycompany.login.entidades.Soporte</class>
+        
+        <properties>
+            <!-- Configuración JDBC -->
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jjdbc:mysql://localhost:10000/servletlogin?useSSL=false&allowPublicKeyRetrieval=true"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="admin123"/>
+            
+            <!-- Dialecto de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            
+            <!-- Generación/actualización de tablas -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            
+            <!-- Opciones para mostrar SQL en consola -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,10 @@
+com\mycompany\login\filters\CORSFilter.class
+com\mycompany\login\JakartaRestConfiguration.class
+com\mycompany\login\util\HibernateUtil.class
+com\mycompany\login\servlets\SoportesServlet.class
+com\mycompany\login\entidades\Usuario.class
+com\mycompany\login\entidades\Soporte.class
+com\mycompany\login\servlets\InventarioServlet.class
+com\mycompany\login\servlets\Drivermanager.class
+com\mycompany\login\resources\JakartaEE10Resource.class
+com\mycompany\login\servlets\LoginServlet.class

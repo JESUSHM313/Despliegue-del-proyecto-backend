@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('fondo_login.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo
+{
+    position: absolute;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    font-size: 25px;
+    font-weight: 800;
+    width: 75px;
+    height: 75px;
+
+}
+
+
+
+.login-box {
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+.btn-1
+{
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    
+    color: black;
+}
+
+.btn-1:hover
+{
+    background-color: #ebb71e;
+}
