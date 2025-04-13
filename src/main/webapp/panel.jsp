@@ -181,7 +181,7 @@
                     ResultSet rsInv = null;
                     try {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        String dbUrl = "jdbc:mysql://localhost:10000/servletlogin?useSSL=false&allowPublicKeyRetrieval=true";
+                        String dbUrl = "jdbc:mysql://despliegue-del-proyecto-bd.onrender.com:10000/servletlogin?useSSL=false&allowPublicKeyRetrieval=true";
                         connInv = DriverManager.getConnection(dbUrl, "root", "admin123");
                         stmtInv = connInv.createStatement();
                         rsInv = stmtInv.executeQuery("SELECT * FROM inventario");
@@ -250,7 +250,7 @@
                     ResultSet rsSoporte = null;
                     try {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        String dbUrl = "jdbc:mysql://localhost:10000/servletlogin?useSSL=false&allowPublicKeyRetrieval=true";
+                        String dbUrl = "jdbc:mysql://despliegue-del-proyecto-bd.onrender.com:10000/servletlogin?useSSL=false&allowPublicKeyRetrieval=true";
                         connSoporte = DriverManager.getConnection(dbUrl, "root", "admin123");
                         stmtSoporte = connSoporte.createStatement();
                         rsSoporte = stmtSoporte.executeQuery("SELECT * FROM soportes");
