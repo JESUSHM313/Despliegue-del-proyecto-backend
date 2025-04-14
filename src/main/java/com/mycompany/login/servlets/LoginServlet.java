@@ -7,9 +7,8 @@ import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -18,7 +17,7 @@ public class LoginServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         // Configuración de respuesta JSON
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
@@ -27,28 +26,35 @@ public class LoginServlet extends HttpServlet {
         String contrasenaParam = request.getParameter("contraseña");
 
         EntityManager em = HibernateUtil.getEntityManager();
-        
+
         try (PrintWriter out = response.getWriter()) {
             TypedQuery<Usuario> query = em.createQuery(
-                "SELECT u FROM Usuario u WHERE u.usuario = :usuario AND u.contrasena = :contrasena",
-                Usuario.class);
+                    "SELECT u FROM Usuario u WHERE u.usuario = :usuario AND u.contrasena = :contrasena",
+                    Usuario.class);
             query.setParameter("usuario", usuarioParam);
             query.setParameter("contrasena", contrasenaParam);
-            
+
             try {
                 Usuario usuario = query.getSingleResult();
-                
+
                 if (usuario != null) {
-                    //  Usuario encontrado, autenticación exitosa
-                    request.getSession().setAttribute("usuario", usuarioParam);
-                    
-                    response.setStatus(HttpServletResponse.SC_OK);  // Código HTTP 200 OK
+                    // Crear sesión
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("usuario", usuarioParam);
+
+                    // ✅ Crear cookie con atributos compatibles para cross-site
+                    String sessionId = session.getId();
+                    String cookieString = "JSESSIONID=" + sessionId +
+                            "; Path=/; Secure; HttpOnly; SameSite=None";
+                    response.setHeader("Set-Cookie", cookieString);
+
+                    // Respuesta exitosa
+                    response.setStatus(HttpServletResponse.SC_OK);
                     out.write("{\"message\":\"Autenticación satisfactoria\"}");
                     out.flush();
-                } 
+                }
             } catch (NoResultException ex) {
-                // Usuario no encontrado, autenticación fallida
-                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);  // Código HTTP 401 Unauthorized
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 out.write("{\"message\":\"Error en la autenticación\"}");
                 out.flush();
             }
