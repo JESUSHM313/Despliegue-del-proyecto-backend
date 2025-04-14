@@ -43,8 +43,8 @@ public class LoginServlet extends HttpServlet {
                     request.getSession().setAttribute("usuario", usuarioParam);
                     
                     response.setStatus(HttpServletResponse.SC_OK);  // Código HTTP 200 OK
-                    out.write("{\"message\":\"Autenticación satisfactoria\"}");
-                    out.flush();
+                    response.sendRedirect("panel.jsp");
+                    return;
                 } 
             } catch (NoResultException ex) {
                 // Usuario no encontrado, autenticación fallida

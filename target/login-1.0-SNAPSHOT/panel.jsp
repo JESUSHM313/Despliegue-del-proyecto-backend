@@ -180,7 +180,7 @@
                     Statement stmtInv = null;
                     ResultSet rsInv = null;
                     try {
-                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Class.forName("org.postgresql.Driver");
                         String dbUrl = "jdbc:postgresql://dpg-cvubp9hr0fns73fvupqg-a.oregon-postgres.render.com/base_de_datos_9964";
                         connInv = DriverManager.getConnection(dbUrl, "base_de_datos_9964_user", "RCzfjJJSZWVRVvq5N6dFDtgpdFS2Jzal");
                         stmtInv = connInv.createStatement();
@@ -249,7 +249,7 @@
                     Statement stmtSoporte = null;
                     ResultSet rsSoporte = null;
                     try {
-                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Class.forName("org.postgresql.Driver");
                         String dbUrl = "jdbc:postgresql://dpg-cvubp9hr0fns73fvupqg-a.oregon-postgres.render.com/base_de_datos_9964";
                         connSoporte = DriverManager.getConnection(dbUrl, "base_de_datos_9964_user", "RCzfjJJSZWVRVvq5N6dFDtgpdFS2Jzal");
                         stmtSoporte = connSoporte.createStatement();

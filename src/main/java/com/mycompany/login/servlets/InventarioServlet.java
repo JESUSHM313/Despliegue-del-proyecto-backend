@@ -29,7 +29,7 @@ public class InventarioServlet extends HttpServlet {
         boolean isPostmanRequest = "application/json".equals(request.getHeader("Accept"));
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(InventarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
