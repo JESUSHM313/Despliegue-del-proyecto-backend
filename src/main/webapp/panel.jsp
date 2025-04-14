@@ -9,7 +9,7 @@
 <%
     // Verificar sesión
     if (session.getAttribute("usuario") == null) {
-        response.sendRedirect("panel.jsp");
+        response.sendRedirect("index.html");
         return;
     }
     
