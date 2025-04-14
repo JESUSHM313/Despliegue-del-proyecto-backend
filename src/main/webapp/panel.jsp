@@ -6,7 +6,16 @@
 
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" 
     import="java.sql.*, java.util.*" %>
-
+<%
+    // Verificar sesión
+    if (session.getAttribute("usuario") == null) {
+        response.sendRedirect("panel.jsp");
+        return;
+    }
+    
+    // Recuperar mensaje de resultado (si existe)
+    String mensaje = request.getParameter("mensaje");
+%>
 <!DOCTYPE html>
 <html>
     <head>
