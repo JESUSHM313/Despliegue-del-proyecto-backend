@@ -16,16 +16,19 @@ public class CORSFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
-        HttpServletResponse res = (HttpServletResponse) response;
         HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
 
-        // ✅ URL del frontend React sin la barra final
-        res.setHeader("Access-Control-Allow-Origin", "https://react-login-6eit.onrender.com");
+        // 🔐 Reemplaza con el dominio exacto de tu frontend React en Render
+        String frontendURL = "https://react-login-6eit.onrender.com";
+
+        // 🔧 Encabezados para permitir CORS
+        res.setHeader("Access-Control-Allow-Origin", frontendURL);
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         res.setHeader("Access-Control-Allow-Credentials", "true");
 
-        // ✅ Responder directamente a las preflight OPTIONS sin continuar el filtro
+        // ⚙️ Manejo especial para solicitudes OPTIONS (preflight)
         if ("OPTIONS".equalsIgnoreCase(req.getMethod())) {
             res.setStatus(HttpServletResponse.SC_OK);
         } else {
