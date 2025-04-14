@@ -34,7 +34,7 @@ public class InventarioServlet extends HttpServlet {
             Logger.getLogger(InventarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String url = "jdbc:mysql://despliegue-del-proyecto-bd.onrender.com:10000/servletlogin?useSSL=false&allowPublicKeyRetrieval=true";
+        String url = "jdbc:mysql://despliegue-del-proyecto-bd.onrender.com:33060/servletlogin?useSSL=false&allowPublicKeyRetrieval=true";
         
         try (Connection conexion = DriverManager.getConnection(url, "root", "admin123")) {
             if ("agregar".equals(accion)) {
