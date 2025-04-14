@@ -181,8 +181,8 @@
                     ResultSet rsInv = null;
                     try {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        String dbUrl = "jdbc:mysql://despliegue-del-proyecto-bd.onrender.com:33060/servletlogin?useSSL=false&allowPublicKeyRetrieval=true";
-                        connInv = DriverManager.getConnection(dbUrl, "root", "admin123");
+                        String dbUrl = "jdbc:postgresql://dpg-cvubp9hr0fns73fvupqg-a.oregon-postgres.render.com/base_de_datos_9964";
+                        connInv = DriverManager.getConnection(dbUrl, "base_de_datos_9964_user", "RCzfjJJSZWVRVvq5N6dFDtgpdFS2Jzal");
                         stmtInv = connInv.createStatement();
                         rsInv = stmtInv.executeQuery("SELECT * FROM inventario");
                 %>
@@ -250,8 +250,8 @@
                     ResultSet rsSoporte = null;
                     try {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        String dbUrl = "jdbc:mysql://despliegue-del-proyecto-bd.onrender.com:33060/servletlogin?useSSL=false&allowPublicKeyRetrieval=true";
-                        connSoporte = DriverManager.getConnection(dbUrl, "root", "admin123");
+                        String dbUrl = "jdbc:postgresql://dpg-cvubp9hr0fns73fvupqg-a.oregon-postgres.render.com/base_de_datos_9964";
+                        connSoporte = DriverManager.getConnection(dbUrl, "base_de_datos_9964_user", "RCzfjJJSZWVRVvq5N6dFDtgpdFS2Jzal");
                         stmtSoporte = connSoporte.createStatement();
                         rsSoporte = stmtSoporte.executeQuery("SELECT * FROM soportes");
                 %>

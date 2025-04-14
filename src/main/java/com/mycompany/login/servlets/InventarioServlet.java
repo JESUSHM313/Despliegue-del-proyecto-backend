@@ -34,9 +34,9 @@ public class InventarioServlet extends HttpServlet {
             Logger.getLogger(InventarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String url = "jdbc:mysql://despliegue-del-proyecto-bd.onrender.com:33060/servletlogin?useSSL=false&allowPublicKeyRetrieval=true";
+        String url = "jdbc:postgresql://dpg-cvubp9hr0fns73fvupqg-a.oregon-postgres.render.com/base_de_datos_9964";
         
-        try (Connection conexion = DriverManager.getConnection(url, "root", "admin123")) {
+        try (Connection conexion = DriverManager.getConnection(url, "base_de_datos_9964_user", "RCzfjJJSZWVRVvq5N6dFDtgpdFS2Jzal")) {
             if ("agregar".equals(accion)) {
                 String nombre = request.getParameter("nombre");
                 String descripcion = request.getParameter("descripcion");
