@@ -14,7 +14,7 @@
     <body>
         <%
             session.invalidate();
-            response.sendRedirect("https://react-login-6eit.onrender.com");
+            response.sendRedirect("index.html");
         %>
     </body>
 </html>

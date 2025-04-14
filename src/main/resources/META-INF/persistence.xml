@@ -20,10 +20,10 @@
             <property name="jakarta.persistence.jdbc.password" value="RCzfjJJSZWVRVvq5N6dFDtgpdFS2Jzal"/>
             
             <!-- Dialecto de Hibernate -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             
             <!-- Generación/actualización de tablas -->
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
             
             <!-- Opciones para mostrar SQL en consola -->
             <property name="hibernate.show_sql" value="true"/>

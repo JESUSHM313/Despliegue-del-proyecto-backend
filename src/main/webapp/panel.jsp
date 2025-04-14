@@ -9,7 +9,7 @@
 <%
     // Verificar sesión
     if (session.getAttribute("usuario") == null) {
-        response.sendRedirect("https://react-login-6eit.onrender.com/");
+        response.sendRedirect("index.html");
         return;
     }
     
